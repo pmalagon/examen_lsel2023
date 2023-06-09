@@ -133,5 +133,5 @@ $(OUTPUT)/$(TARGET)$(EXT): $(OBJECTS) Makefile
 # clean up
 #######################################
 clean:
-	$(RM) $(OUTPUT)
+	$(RM) $(OUTPUT) ceedling/build
 	@echo Cleanup complete!
