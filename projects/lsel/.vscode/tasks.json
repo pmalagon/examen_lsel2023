@@ -1,0 +1,217 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build stm32f446_hal",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"PLATFORM=stm32f446_hal",
+				"USE_HAL_DRIVER=yes"
+			]
+		},
+		{
+			"label": "Build linux native",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"PLATFORM=linux"
+			]
+		},
+		{
+			"label": "Build linux Cross RPi 32-bit ",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"PLATFORM=linux PREFIX=arm-linux-gnueabihf-"
+			]
+		},
+		{
+			"label": "Build linux Cross RPi 64-bit",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"PLATFORM=linux PREFIX=aarch64-linux-gnu-"
+			]
+		},
+		{
+			"label": "Build rpi_hat native",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"PLATFORM=rpi_hat"
+			]
+		},
+		{
+			"label": "Build rpi_hat Cross RPi 32-bit",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"PLATFORM=rpi_hat PREFIX=arm-linux-gnueabihf-"
+			]
+		},
+		{
+			"label": "Build rpi_hat Cross RPi 64-bit",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build"
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"PLATFORM=rpi_hat PREFIX=aarch64-linux-gnu-"
+			]
+		},
+		{
+			"label": "Clean",
+			"command": "make",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"clean"
+			]
+		},
+		{
+			"label": "Flash NUCLEO_STM32F446RE",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"linux": {
+				"command": "make"
+			},
+			"osx": {
+				"command": "make"
+			},
+			"windows": {
+				"command": "mingw32-make"
+			},
+			"args": [
+				"flash",
+				"PLATFORM=stm32f446_hal"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Clean & Re-Build stm32f446_hal",
+			"dependsOn": [
+				"Clean",
+				"Build stm32f446_hal"
+			],
+			"dependsOrder": "sequence"
+		},
+		{
+			"label": "Clean & Re-Build Linux native",
+			"dependsOn": [
+				"Clean",
+				"Build linux native"
+			],
+			"dependsOrder": "sequence"
+		},
+		{
+			"label": "Clean & Re-Build rpi_hat native",
+			"dependsOn": [
+				"Clean",
+				"Build rpi_hat native"
+			],
+			"dependsOrder": "sequence"
+		}
+	]
+}

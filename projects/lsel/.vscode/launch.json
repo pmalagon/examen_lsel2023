@@ -1,0 +1,96 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug linux",
+            "type": "cppdbg",
+            "request": "launch",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "linux": {
+                "name": "Debug PC -linux",
+                "type": "cppdbg",
+                "request": "launch",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb",
+                "program": "${workspaceFolder}/output/${workspaceFolderBasename}"
+              },
+              "preLaunchTask": "Clean & Re-Build Linux native"
+        },     
+        {
+            "name": "Debug rpi_hat",
+            "type": "cppdbg",
+            "request": "launch",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "linux": {
+                "name": "Debug PC -linux",
+                "type": "cppdbg",
+                "request": "launch",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb",
+                "program": "${workspaceFolder}/output/${workspaceFolderBasename}"
+              },
+              "preLaunchTask": "Clean & Re-Build rpi_hat native"
+        },     
+        {
+            "name": "Ceedling - Debug test",
+            "type": "cppdbg",
+            "request": "launch",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "program": "${workspaceFolder}/ceedling/build/test/out/${command:ceedlingExplorer.debugTestExecutable}",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },        
+        {
+            "name": "Debug device STM32F446",
+            "type": "cortex-debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceFolder}/output/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "runToEntryPoint": "main",
+            "servertype": "openocd",
+            "device": "STM32F446RE",
+            //"serverpath": "C:/Program Files/openocd/bin/openocd.exe", // If you are not using Windows, you must remove this line
+            "configFiles": [
+            "port/stm32f446_hal/openocd.cfg"
+            ],
+            "preLaunchTask": "Clean & Re-Build stm32f446_hal",
+            "svdFile": "../../svd/STM32F446.svd",
+            "swoConfig": {
+                "enabled": true,
+                "cpuFrequency": 16000000,
+                "swoFrequency": 2000000,
+                "source": "probe",
+                "decoders": [
+                    {
+                    "type": "console",
+                    "label": "ITM",
+                    "port": 0
+                    }
+                ]
+            },
+        }
+    ]
+}

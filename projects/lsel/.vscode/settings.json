@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.port": "makefile",
+        "rb.h": "c",
+        "stm32f4xx_hal.h": "c",
+        "snake_time.h": "c"
+    },
+    "ceedlingExplorer.problemMatching": {
+        "mode": "gcc"
+    },
+    "ceedlingExplorer.debugConfiguration": "Ceedling - Debug test",
+    "ceedlingExplorer.projectPath": "./ceedling",
+    "*.port": "makefile"
+}
